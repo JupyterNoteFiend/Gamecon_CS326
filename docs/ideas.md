@@ -2,7 +2,7 @@ Team name - game36
 
 Application Name - GameCon
 
-Team overview - Utkarsh Dave Sahni creativedev1401, Rhidam Vaikunth rvaikunth , CarleanoLibretto username: clibretto, Thomas Callanan
+Team overview - Utkarsh Dave Sahni creativedev1401, Rhidam Vaikunth rvaikunth , CarleanoLibretto username: clibretto, Thomas Callanan tommycallanan
 
 GameCon is a free, social networking site that caters to gamers, who are one of the largest groups of a specific interest in the world. The purpose of this application is to 
 foster an environment built primarily to unite gamers through multiple forms of media. In terms of format, it is akin to a website like Reddit. Similar to the way in which 
