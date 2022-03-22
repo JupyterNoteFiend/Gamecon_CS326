@@ -1,0 +1,31 @@
+.logo {
+    width: 11%;
+    height: 9%;
+    padding-left: 5%;
+}
+
+.searchBox {
+    position: fixed;
+    left: 12%;
+    top: 30px;
+    width: 40%;
+    height: 5%;
+}
+
+.navbar {
+    width: 100%;
+    border: 1px solid rgb(192, 189, 189);
+}
+
+.login {
+    padding-left: 70%;
+    padding-top: 1%;
+}
+
+.signup {
+    padding-right: 7%;
+    padding-top: 1%;
+}
+
+
+
