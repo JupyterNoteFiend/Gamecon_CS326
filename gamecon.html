@@ -12,8 +12,50 @@
 <body>
     <nav class="navbar navbar-light bg-light py-3">
         <img class="logo" src="gameconlogo.png">
-        <input class="searchBox" type="text" placeholder="Search Post by Title">
-        <p class="login">Login</p>
-        <p class="signup">Sign Up</p>
+        <div class = "searchBoxDiv">
+            <input class="searchBox" type="text" placeholder="Search Post by Title">
+        </div>
+        <div class="login">Login</div>
+        <div class="signup">Sign Up</div>
     </nav>
+    <br/>
+    <div class="container posts-content">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="media mb-3">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="d-block ui-w-40 square" alt="">
+                      <div class="media-body ml-3">
+                        KenyeWest
+                        <div class="text-muted small">3 days ago</div>
+                      </div>
+                    </div>
+                    <p>
+                      I fw fortnite heavy.
+                    </p>
+                    <a href="javascript:void(0)" class="ui-rect ui-bg-cover post-image" style="background-image: url(https://i.ytimg.com/vi/-LIfETJ0G1U/maxresdefault.jpg);"></a>
+                  </div>
+                  <div class="card-footer">
+                    <a href="javascript:void(0)" class="d-inline-block text-muted likes">
+                        <strong>123</strong> Likes</small>
+                    </a>
+                    <a href="javascript:void(0)" class="d-inline-block text-muted ml-3 comments">
+                        <strong>12</strong> Comments</small>
+                    </a>
+                    <a href="javascript:void(0)" class="d-inline-block text-muted ml-3 repost">
+                      Repost</small>
+                    </a>
+                  </div>
+                </div>
+    </div>
+    <div class="list-group">
+        <button type="button" class="list-group-item list-group-item-action active">
+          Cras justo odio
+        </button>
+        <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+        <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+        <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+        <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+    </div>
 </body>
