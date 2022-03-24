@@ -8,9 +8,7 @@
     left: 12%;
     top: 30px;
     width: 300%;
-    height: 5%;
-    padding-left: 5%;
-    
+    min-height: 50px;
 }
 
 .navbar {
@@ -20,12 +18,10 @@
 
 .login {
     padding-left: 50%;
-    padding-top: 1%;
 }
 
 .signup {
     padding-right: 7%;
-    padding-top: 1%;
 }
 
 body {
@@ -95,8 +91,14 @@ body {
 .post-image {
     width: 5%;
     height: 5%;
+    padding-left: 10%;
 }
 
 .list-group {
-    padding-left: 60%;
+    width: 40%;
+    padding-left: 3%;
+}
+
+.bigCard {
+    padding-left: 7%;
 }
