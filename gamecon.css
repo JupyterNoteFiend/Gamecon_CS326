@@ -102,3 +102,7 @@ body {
 .bigCard {
     padding-left: 7%;
 }
+
+.newPostImage {
+    width: 100%;
+}
