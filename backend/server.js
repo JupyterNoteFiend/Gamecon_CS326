@@ -1,0 +1,78 @@
+import express from 'express';
+import logger from 'morgan';
+import { readFile, writeFile } from 'fs/promises';
+
+//users and posts data files
+const usersFile = 'usersFile.json';
+const postsFile = 'postsFile.json';
+
+//users and posts data structures
+let users = new Object();
+let posts = new Object();
+
+async function reloadUsers() {
+    try {
+      const data = await readFile(usersFile, { encoding: 'utf8' });
+      users = JSON.parse(data);
+    } catch (err) {
+      users = {};
+    }
+}
+
+async function reloadPosts() {
+    try {
+      const data = await readFile(postsFile, { encoding: 'utf8' });
+      posts = JSON.parse(data);
+    } catch (err) {
+      posts = {};
+    }
+}
+
+async function saveUsers() {
+    try {
+      const data = JSON.stringify(users);
+      await writeFile(usersFile, data, { encoding: 'utf8' });
+    } catch (err) {
+      console.log(err);
+    }
+}
+
+async function savePosts() {
+    try {
+      const data = JSON.stringify(posts);
+      await writeFile(postsFile, data, { encoding: 'utf8' });
+    } catch (err) {
+      console.log(err);
+    }
+}
+async function createAccount(response, options){
+
+}
+
+//creating and initializing server
+const app = express();
+const port = 3000;
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use('/client', express.static('client'));
+
+//POST
+app.post('/register', function(request, response){
+    const options = request.body;
+    createAccount(response, options);
+});
+app.post('upload', function(request, response){});
+
+//GET
+app.get('/isLoggedIn', function(request, response){});
+app.get('/login', function(request, response){});
+app.get('/logout', function(request, response){});
+
+//DELETE
+app.delete('/delete', function(request, response){});
+
+// NEW
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+  });
