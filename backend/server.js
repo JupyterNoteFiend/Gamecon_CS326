@@ -62,7 +62,7 @@ app.post('/register', function(request, response){
     const options = request.body;
     createAccount(response, options);
 });
-app.post('upload', function(request, response){});
+app.post('/upload', function(request, response){});
 
 //GET
 app.get('/isLoggedIn', function(request, response){});
