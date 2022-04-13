@@ -55,6 +55,7 @@ const port = 3000;
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(expressSession({secret:'<some-secret-token-here>',resave: true, saveUninitialized: true}));
 app.use('/client', express.static('client'));
 
 //POST
