@@ -63,10 +63,10 @@ app.use('/client', express.static('client'));
 
 //POST
 app.post('/register', function(request, response){
-  if(request.body.username && request.body.status){
+  if(request.body.username && request.body.password){
     var newMember = {
       username: request.body.username,
-      status: request.body.status
+      password: request.body.password
     }
     request.session.user = newMember;
     response.json({  
@@ -78,7 +78,7 @@ app.post('/register', function(request, response){
     response.json({  
       success: false,
       error: true,
-      message: 'Incomplete information: username and status are required'
+      message: 'Incomplete information: username and password are required'
     });
   }
 
