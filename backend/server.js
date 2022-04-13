@@ -1,9 +1,9 @@
 import express from 'express';
 import expressSession from 'express';
 import logger from 'morgan';
+import { readFile, writeFile } from 'fs/promises';
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-import { readFile, writeFile } from 'fs/promises';
 
 //users and posts data files
 const usersFile = 'usersFile.json';
