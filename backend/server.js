@@ -114,7 +114,12 @@ app.delete('/delete', function(request, response){
 
 
 });
-
+// Error Handle
+app.use(function(request, response, next) {
+  var error404 = new Error('Cant find the route buddy');
+  error404.status = 404;
+  next(error404);
+});
 // NEW
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
