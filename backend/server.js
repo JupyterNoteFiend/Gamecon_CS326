@@ -1,5 +1,8 @@
 import express from 'express';
+import expressSession from 'express';
 import logger from 'morgan';
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 import { readFile, writeFile } from 'fs/promises';
 
 //users and posts data files
@@ -80,7 +83,9 @@ app.post('/register', function(request, response){
   }
 
 });
-app.post('/upload', function(request, response){});
+app.post('/upload', function(request, response){
+
+});
 
 //GET
 app.get('/isLoggedIn', function(request, response){
@@ -93,11 +98,19 @@ app.get('/isLoggedIn', function(request, response){
     response.send({ authenticated: false });
   }
 });
-app.get('/login', function(request, response){});
-app.get('/logout', function(request, response){});
+app.get('/login', function(request, response){
+
+});
+app.get('/logout', function(request, response){
+
+
+});
 
 //DELETE
-app.delete('/delete', function(request, response){});
+app.delete('/delete', function(request, response){
+
+
+});
 
 // NEW
 app.listen(port, () => {
