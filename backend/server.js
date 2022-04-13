@@ -59,8 +59,25 @@ app.use('/client', express.static('client'));
 
 //POST
 app.post('/register', function(request, response){
-    const options = request.body;
-    createAccount(response, options);
+  if(request.body.username && request.body.status){
+    var newMember = {
+      username: request.body.username,
+      status: request.body.status
+    }
+    request.session.user = newMember;
+    response.json({  
+      success: true,
+      error: false
+    });
+  }
+  else {
+    response.json({  
+      success: false,
+      error: true,
+      message: 'Incomplete information: username and status are required'
+    });
+  }
+
 });
 app.post('/upload', function(request, response){});
 
