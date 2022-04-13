@@ -82,7 +82,16 @@ app.post('/register', function(request, response){
 app.post('/upload', function(request, response){});
 
 //GET
-app.get('/isLoggedIn', function(request, response){});
+app.get('/isLoggedIn', function(request, response){
+  if(request.session.user){
+    response.send({ 
+      authenticated: true 
+    });
+  }
+  else {
+    response.send({ authenticated: false });
+  }
+});
 app.get('/login', function(request, response){});
 app.get('/logout', function(request, response){});
 
