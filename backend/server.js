@@ -48,8 +48,31 @@ async function savePosts() {
       console.log(err);
     }
 }
+
 async function createAccount(response, options){
 
+}
+
+function deleteUser(name){
+  await reloadUsers();
+  for(const[key, value] of Object.entries(users)){
+    if(key === name){
+      delete users[key];
+      return 1;
+    }
+  }
+  return -1;
+}
+
+//returns the users information as an object, else returns a -1
+function getUser(response, name){
+  await reloadUsers();
+  for(const[key, value] of Object.entries(users)){
+    if(key === name){
+      return value;
+    }
+  }
+  return -1;
 }
 
 //creating and initializing server
@@ -58,7 +81,7 @@ const port = 3000;
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(expressSession({secret:'<some-secret-token-here>',resave: true, saveUninitialized: true}));
+app.use(expressSession({secret:'<some-secret-token-here>', resave: true, saveUninitialized: true}));
 app.use('/client', express.static('client'));
 
 //POST
@@ -81,7 +104,6 @@ app.post('/register', function(request, response){
       message: 'Incomplete information: username and password are required'
     });
   }
-
 });
 app.post('/upload', function(request, response){
 
@@ -99,7 +121,19 @@ app.get('/isLoggedIn', function(request, response){
   }
 });
 app.get('/login', function(request, response){
-
+  let name = request.body.username;
+  let userInfo = getUser(response, name);
+  if(userInfo !== -1){
+    if(userInfo.password === request.body.password){
+      request.session.user = true;
+    }
+    else{
+      response.json({message: 'Wrong password try again'});
+    }
+  }
+  else{
+    response.json({message: 'Username does not exist'});
+  }
 });
 app.get('/logout', function(request, response){
   if(request.session.user){
@@ -107,13 +141,30 @@ app.get('/logout', function(request, response){
   }
   response.redirect('/');
 });
-
+app.get('/user', function(request, response){
+  let name = request.body.username;
+  let userInfo = getUser(response, name);
+  //user doesn't exist
+  if(userInfo === -1){
+    response.json({message: 'User ${name} does not exist'});
+  }
+  else{
+    response.json(userInfo);
+  }
+});
 
 //DELETE
 app.delete('/delete', function(request, response){
-
-
+  let name = request.body.username;
+  let userInfo = deleteUser(name);
+  if(userInfo === -1){
+    response.json({message: 'User ${name} does not exist'});
+  }
+  else{
+    response.json({message: 'User ${name} was deleted'});
+  }
 });
+
 // Error Handle
 app.use(function(request, response, next) {
   var error404 = new Error('Cant find the route buddy');
