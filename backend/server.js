@@ -102,9 +102,12 @@ app.get('/login', function(request, response){
 
 });
 app.get('/logout', function(request, response){
-
-
+  if(request.session.user){
+    request.session.user = null;
+  }
+  response.redirect('/');
 });
+
 
 //DELETE
 app.delete('/delete', function(request, response){
