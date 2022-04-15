@@ -2,6 +2,7 @@ import express from 'express';
 import expressSession from 'express';
 import logger from 'morgan';
 import { readFile, writeFile } from 'fs/promises';
+var multer = require('multer');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
@@ -12,7 +13,15 @@ const postsFile = 'postsFile.json';
 //users and posts data structures
 let users = new Object();
 let posts = new Object();
-
+var Storage = multer.diskStorage({
+  destination: function(request, file, callback) {
+      callback(null, "./Images");
+  },
+  filename: function(request, file, callback) {
+      callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
+  }
+});
+const upload = multer({storage: Storage}) ;
 async function reloadUsers() {
     try {
       const data = await readFile(usersFile, { encoding: 'utf8' });
@@ -83,7 +92,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(expressSession({secret:'<some-secret-token-here>', resave: true, saveUninitialized: true}));
 app.use('/client', express.static('client'));
-
+app.use(bodyParser.json());
 //POST
 app.post('/register', function(request, response){
   if(request.body.username && request.body.password){
@@ -105,9 +114,19 @@ app.post('/register', function(request, response){
     });
   }
 });
-app.post('/upload', function(request, response){
 
+  app.get("/upload", function(response) {
+    response.sendFile("Uploads");
 });
+app.post('/upload', function(request, response){
+    upload(request, response, function(err) {
+        if (err) {
+            return response.end("Something went wrong!");
+        }
+        return response.end("File uploaded sucessfully!.");
+    });
+});
+
 
 //GET
 app.get('/isLoggedIn', function(request, response){
