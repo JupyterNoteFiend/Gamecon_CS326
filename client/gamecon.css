@@ -106,3 +106,8 @@ body {
 .newPostImage {
     width: 100%;
 }
+
+#loginButton, #signupButton {
+    background-color: rgb(255, 255, 255);
+    border-radius: 9px;
+}
