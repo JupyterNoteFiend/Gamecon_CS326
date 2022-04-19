@@ -2,9 +2,9 @@ import express from 'express';
 import expressSession from 'express';
 import logger from 'morgan';
 import { readFile, writeFile } from 'fs/promises';
-var multer = require('multer');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+// let multer = require('multer');
+// var bodyParser = require('body-parser');
+// var cookieParser = require('cookie-parser');
 
 //users and posts data files
 const usersFile = 'usersFile.json';
@@ -13,15 +13,15 @@ const postsFile = 'postsFile.json';
 //users and posts data structures
 let users = new Object();
 let posts = new Object();
-var Storage = multer.diskStorage({
-  destination: function (request, file, callback) {
-    callback(null, "./Images");
-  },
-  filename: function (request, file, callback) {
-    callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
-  }
-});
-const upload = multer({ storage: Storage });
+// var Storage = multer.diskStorage({
+//   destination: function (request, file, callback) {
+//     callback(null, "./Images");
+//   },
+//   filename: function (request, file, callback) {
+//     callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
+//   }
+// });
+// const upload = multer({ storage: Storage });
 async function reloadUsers() {
   try {
     const data = await readFile(usersFile, { encoding: 'utf8' });
@@ -100,9 +100,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(expressSession({ secret: '<some-secret-token-here>', resave: true, saveUninitialized: true }));
 app.use('/client', express.static('client'));
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+
 //POST
-app.post('/register', function (request, response) {
+app.post('/register', async function (request, response) {
+  console.log("username: ",request.body.username);
   if (request.body.username && request.body.password) {
     await createUser(response, request.body.username, request.body.password);
     response.json({
@@ -119,7 +121,7 @@ app.post('/register', function (request, response) {
   }
 });
 
-app.get("/upload", function (response) {
+app.get("/upload", async function (response) {
   response.sendFile("Uploads");
 });
 app.post('/upload', function (request, response) {
@@ -131,9 +133,8 @@ app.post('/upload', function (request, response) {
   });
 });
 
-
 //GET
-app.get('/isLoggedIn', function (request, response) {
+app.get('/isLoggedIn', async function (request, response) {
   if (request.session.user) {
     response.send({
       authenticated: true
@@ -143,7 +144,7 @@ app.get('/isLoggedIn', function (request, response) {
     response.send({ authenticated: false });
   }
 });
-app.get('/login', function (request, response) {
+app.get('/login', async function (request, response) {
   let name = request.body.username;
   let userInfo = await getUser(response, name);
   if (userInfo !== -1) {
@@ -177,10 +178,10 @@ app.get('/user', function (request, response) {
 });
 
 //DELETE
-app.delete('/delete', function (request, response) {
+app.delete('/delete', async function (request, response) {
   let name = request.body.username;
   let password = request.body.password;
-  let userInfo = deleteUser(name, password);
+  let userInfo = await deleteUser(name, password);
   if (userInfo === -1) {
     response.json({ message: 'User ${name} does not exist' });
   }
@@ -195,6 +196,7 @@ app.use(function (request, response, next) {
   error404.status = 404;
   next(error404);
 });
+
 // NEW
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
