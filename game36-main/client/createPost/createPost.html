@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Slide Navbar</title>
+    <link rel="stylesheet" type="text/css" href="createPost.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <script defer src="/client/createPost/createPost.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="newPostWrapper">
+            <form>
+                <label for="chk" aria-hidden="true">New Post</label>
+                <input class="title" name="postTitle" placeholder="Username" required="" id="postTitle">
+                <textarea class="content" name="postTextContent" placeholder="Post text" required=""
+                    id="postText"></textarea>
+                <input class="imageLink" name="imageLink" placeholder="Hyperlink for Image" required="" id="imageLink">
+                <button id="postButton">Post</button>
+            </form>
+        </div>
+
+        <div class="banner">
+
+        </div>
+    </div>
+</body>
+
+</html>
