@@ -217,6 +217,10 @@ app.delete('/delete', async function (request, response) {
   }
 });
 
+app.get('/', (request, response) => {
+  response.redirect('/client/gamecon.html');
+})
+
 // Error Handle
 app.use(function (request, response, next) {
   var error404 = new Error('Cant find the route buddy');
@@ -224,6 +228,6 @@ app.use(function (request, response, next) {
   next(error404);
 });
 // NEW
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Server started on port ${port}`);
 });
