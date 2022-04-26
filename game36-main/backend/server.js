@@ -75,6 +75,24 @@ async function createUser(response, username, password) {
   }
 }
 
+async function updateUser(response, username, password) {
+  try {
+    await reloadUsers();
+    for (let i = 0; i < users.length; ++i) {
+      if (users[i].username === username) {
+        users[i].password = password;
+      }
+    }
+    await saveUsers();
+  } catch (err) {
+    response.json({
+      success: false,
+      error: true,
+      message: 'Cannot update user'
+    })
+  }
+}
+
 async function deleteUser(name, password) {
   await reloadUsers();
   for (let i = 0; i < users.length; i++) {
@@ -140,6 +158,26 @@ app.post('/addPost', async function (request, response) {
     await savePosts();
   } else {
     response.json({ message: 'Enter username and text' });
+  }
+});
+
+app.post('/changePassword', async function(request, response){
+  let username = request.body.username;
+  let password = request.body.password;
+  if (username && password) {
+    await updateUser(response, username, password);
+    response.json({
+      success: true,
+      error: false
+    });
+    await writeFile(usersFile, JSON.stringify(users), { encoding: 'utf8' });
+  }
+  else {
+    response.json({
+      success: false,
+      error: true,
+      message: 'Incomplete information: username and password are required'
+    });
   }
 });
 
