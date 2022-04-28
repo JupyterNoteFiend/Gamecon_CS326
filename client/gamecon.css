@@ -7,7 +7,7 @@
 .searchBox {
     left: 12%;
     top: 30px;
-    width: 300%;
+    width: 230%;
     min-height: 50px;
     border-radius: 9px;
 }
@@ -17,13 +17,13 @@
     border: 1px solid rgb(192, 189, 189);
 }
 
-.login {
-    padding-left: 30%;
-}
+/* .login {
+    padding-left: 10%;
+} */
 
-.signup {
+/* .signup {
     padding-right: 0%;
-}
+} */
 
 body {
     background:#eee;
@@ -113,27 +113,27 @@ body {
     width: 100%;
 }
 
-#loginButton, #signupButton {
+#loginButton, #signupButton, #createPostButton, #deleteButton, #updateButton {
     background-color: rgb(255, 255, 255);
     border-radius: 9px;
 }
 
-.login {
+/* .login {
     padding-left: 30%;
-}
+} */
 
-.signup {
+/* .signup {
     padding-right: 0%;
-}
+} */
 
-.delete {
+/* .delete {
     padding-right: 10%;
-}
+} */
 
-#createPostButton, #deleteButton {
+/* #createPostButton, #deleteButton {
     background-color: rgb(255, 255, 255);
     border-radius: 9px;
-}
+} */
 
 .createPost {
     padding-left: 20%;
