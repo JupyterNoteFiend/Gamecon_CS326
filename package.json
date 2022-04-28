@@ -1,0 +1,21 @@
+{
+    "name": "game36",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "start": "node backend/server.js",
+        "deploy": "node --version"
+    },
+    "author": "COMPSCI 326",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.3",
+        "morgan": "^1.10.0"
+    },
+    "engines": {
+        "node": "17.8.0",
+        "npm": "8.5.5"
+    }
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/client/gamecon.css" />
+  <script defer src="/client/main.js"></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <img class="logo" src="/client/gameconlogo.png">
+    <div class="searchBoxDiv">
+      <input class="searchBox" type="text" placeholder="Search Post by Title">
+    </div>
+    <div class="createPost">
+      <a href="/client/createPost/createPost.html">
+        <button id="createPostButton">Create Post</button>
+      </a>
+    </div>
+    <div class="login">
+      <a href="/client/login/login.html">
+        <button id="loginButton">Login</button>
+      </a>
+    </div>
+    <div class="signup">
+      <a href="/client/signup/signup.html">
+        <button id="signupButton">Sign up</button>
+      </a>
+    </div>
+    <div class="changePassword">
+      <a href="/client/update/update.html">
+        <button id="updateButton">Change Password</button>
+      </a>
+    </div>
+    <div class="delete">
+      <a href="/client/delete/delete.html">
+        <button id="deleteButton">Delete Account</button>
+      </a>
+    </div>
+  </nav>
+
+  <br />
+  <div class="container posts-content bigCard">
+    <div class="row" id="postRow">
+      <div class="col-lg-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="media mb-3">
+              <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="d-block ui-w-40 square" alt="">
+              <div class="media-body ml-3">
+                KenyeWest
+                <div class="text-muted small">3 days ago</div>
+              </div>
+            </div>
+            <p>
+              I fw fortnite heavy.
+            </p>
+            <a href="javascript:void(0)" class="ui-rect ui-bg-cover post-image"
+              style="background-image: url(https://i.ytimg.com/vi/-LIfETJ0G1U/maxresdefault.jpg);"></a>
+          </div>
+          <div class="card-footer">
+            <strong>123</strong> Likes</small>
+            <button>Like</button>
+            <a href="javascript:void(0)" class="d-inline-block text-muted ml-3 comments">
+              <strong>12</strong> Comments</small>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="list-group">
+        <button type="button" class="list-group-item list-group-item-action active">
+          Rainbow Six Seige
+        </button>
+        <button type="button" class="list-group-item list-group-item-action">Fortnite</button>
+        <button type="button" class="list-group-item list-group-item-action">Call of Duty: Modern Warefare</button>
+        <button type="button" class="list-group-item list-group-item-action">Grand Theft Auto V</button>
+        <button type="button" class="list-group-item list-group-item-action">NBA 2K22</button>
+      </div>
+      </div>
+</body>
