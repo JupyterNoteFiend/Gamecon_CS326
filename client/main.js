@@ -1,10 +1,11 @@
-async function updateLikes(postId, like){
-    let data = await fetch(`/updateLikes`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({postId: postId, like: (like)? true: false}),
+async function updateLikes(postId, like, likes){
+    let l = (like)? true: false;
+    let data = await fetch(`/updateLikes?postId=${postId}&like=${l}&likes=${likes}`, {
+        method: 'POST'
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify({postId: postId, like: (like)? true: false, likes}),
     });
     let response = await data.json();
     if (response.success) {
@@ -17,10 +18,7 @@ async function updateLikes(postId, like){
 async function genPosts() {
     let posts = await fetch(`/getPosts`, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    });
     let postList = await posts.json();
     let rowDiv = document.getElementById('postRow');
     for (let i = 0; i < postList.length; i++) {
@@ -65,7 +63,7 @@ async function genPosts() {
         likes.innerText = 'Like';
         likes.classList.add('likes');
         likes.addEventListener('click', async function(){
-            let t = await updateLikes(postList[i].postId, true);
+            let t = await updateLikes(postList[i].postId, true, postList[i].likes);
             if(!t){
                 console.log('Server error!');
             }
@@ -75,7 +73,7 @@ async function genPosts() {
         dislike.innerText = 'Dislike';
         dislike.classList.add('dislikes');
         dislike.addEventListener('click', async function(){
-            let t = await updateLikes(postList[i].postId, false);
+            let t = await updateLikes(postList[i].postId, false, postList[i].likes);
             if(!t){
                 console.log('Server error!');
             }

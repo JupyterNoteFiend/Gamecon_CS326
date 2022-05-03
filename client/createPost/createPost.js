@@ -4,19 +4,15 @@ const uniqueId = (length=16) => {
 
 async function createPost(username, content, imageLink) {
     let today = new Date().toLocaleDateString()
-    let postBool = await fetch(`/addPost`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username: username, content: content, imageLink: imageLink, postId: uniqueId(), date: today.toString()})
+    let postBool = await fetch(`/addPost?username=${username}&content=${content}&imageLink=${imageLink}&postId=${uniqueId()}&date=${today.toString()}`, {
+        method: 'POST'
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify({ username: username, content: content, imageLink: imageLink, postId: uniqueId(), date: today.toString()})
     });
     let response = await postBool.json();
-    if (response.message === 'Post successful') {
-        return true;
-    } else {
-        return false;
-    }
+    return response;
 }
 
 document.getElementById('postButton').addEventListener('click', async function (e) {

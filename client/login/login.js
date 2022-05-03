@@ -1,17 +1,9 @@
 async function verifyPerson(name, password) {
-    let persons = await fetch(`/login`, {
+    let persons = await fetch(`/login?username=${name}&password=${password}`, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
     })
     let jsonObj = await persons.json();
-    for (let i = 0; i < jsonObj.length; i++) {
-        if (jsonObj[i].username === name && jsonObj[i].password === password) {
-            return true;
-        }
-    }
-    return false;
+    return jsonObj;
     // let personObj = await persons.json();
     // if (personObj.message === 'Successfully logged in') {
     //     return true;
@@ -26,6 +18,7 @@ document.getElementById('checkLog').addEventListener('click', async function (e)
     let password = document.getElementById('passwordText').value;
     let verifyBool = await verifyPerson(username, password);
     if (verifyBool) {
+        e.preventDefault();
         window.location = '/client/gamecon.html';
     } else {
         alert('Wrong username or password');

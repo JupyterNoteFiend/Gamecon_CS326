@@ -1,18 +1,9 @@
 async function deletePerson(name, password) {
-    let data = await fetch(`/delete`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username: name, password: password })
+    let data = await fetch(`/delete?username=${name}&password=${password}`, {
+        method: 'DELETE'
     })
     let response = await data.json();
-    console.log(response);
-    if (response.message === 'Account deleted') {
-        return true;
-    } else {
-        return false;
-    }
+    return response;
 }
 
 document.getElementById('deleteButton').addEventListener('click', async function (e) {

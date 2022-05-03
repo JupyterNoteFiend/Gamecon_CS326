@@ -1,33 +1,17 @@
 async function verifyPerson(name, password) {
-    let persons = await fetch(`/login`, {
+    let persons = await fetch(`/login?username=${name}&password=${password}`, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
     })
     let jsonObj = await persons.json();
-    for (let i = 0; i < jsonObj.length; i++) {
-        if (jsonObj[i].username === name && jsonObj[i].password === password) {
-            return true;
-        }
-    }
-    return false;
+    return jsonObj;
 }
 
 async function changePassword(username, password){
-    let data = await fetch(`/changePassword`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username: username, password: password }),
+    let data = await fetch(`/changePassword?username=${username}&password=${password}`, {
+        method: 'POST'
     });
     let response = await data.json();
-    if (response.success) {
-        return true;
-    } else {
-        return false;
-    }
+    return response;
 }
 
 document.getElementById('changePassword').addEventListener('click', async function(e){
@@ -39,7 +23,8 @@ document.getElementById('changePassword').addEventListener('click', async functi
     if(verifyBool){
         let bool = await changePassword(username, newPassword);
         if(bool){
-            window.location = '/client/gamecon.html';
+            e.preventDefault();
+            //window.location = '/client/gamecon.html';
         }
         else{
             alert('Server side error');

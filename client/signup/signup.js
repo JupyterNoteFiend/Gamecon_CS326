@@ -1,17 +1,9 @@
 async function updatePerson(name, password) {
-    let data = await fetch(`/register`, {
+    let data = await fetch(`/register?username=${name}&password=${password}`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username: name, password: password }),
     })
     let response = await data.json();
-    if (response.success) {
-        return true;
-    } else {
-        return false;
-    }
+    return response;
 }
 
 document.getElementById('register').addEventListener('click', async function (e) {
