@@ -118,6 +118,9 @@ body {
     border-radius: 9px;
 }
 
+.postTitle{
+    text-align: center;
+}
 /* .login {
     padding-left: 30%;
 } */

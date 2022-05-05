@@ -69,9 +69,9 @@ export class game36Database {
     return res;
   }
 
-  async createPost(username, content, imageLink, postId, likes, date){
+  async createPost(username, game, postTitle, content, imageLink, postId, likes, date){
     const res = await this.posts.insertOne(
-        { username: username, content: content, imageLink: imageLink, 
+        { username: username, game, postTitle: postTitle, content: content, imageLink: imageLink, 
             postId: postId, likes: likes, date: date}
     );
     return res;

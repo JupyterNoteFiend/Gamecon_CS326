@@ -14,7 +14,7 @@
   <nav class="navbar">
     <img class="logo" src="/client/gameconlogo.png">
     <div class="searchBoxDiv">
-      <input class="searchBox" type="text" placeholder="Search Post by Title">
+      <input class="searchBox" type="text" placeholder="Search Post by Title" id = 'searchBox'>
     </div>
     <div class="createPost">
       <a href="/client/createPost/createPost.html">
@@ -54,6 +54,7 @@
               <div class="media-body ml-3">
                 KenyeWest
                 <div class="text-muted small">3 days ago</div>
+                <div class = 'postTitle'>Call Of Duty</div>
               </div>
             </div>
             <p>
@@ -72,13 +73,11 @@
         </div>
       </div>
       <div class="list-group">
-        <button type="button" class="list-group-item list-group-item-action active">
-          Rainbow Six Seige
-        </button>
-        <button type="button" class="list-group-item list-group-item-action">Fortnite</button>
-        <button type="button" class="list-group-item list-group-item-action">Call of Duty: Modern Warefare</button>
-        <button type="button" class="list-group-item list-group-item-action">Grand Theft Auto V</button>
-        <button type="button" class="list-group-item list-group-item-action">NBA 2K22</button>
+        <button type="button" class="list-group-item list-group-item-action" id = 'fortnite' value = 'fortnite'>Fortnite</button>
+        <button type="button" class="list-group-item list-group-item-action" id = 'cod' value = 'cod'>Call of Duty</button>
+        <button type="button" class="list-group-item list-group-item-action" id = 'gta' value = 'gta'>GTA V</button>
+        <button type="button" class="list-group-item list-group-item-action" id = 'nba2k' value = 'nba2k'>NBA 2K22</button>
+        <button type="button" class="list-group-item list-group-item-action" id = 'r6s' value = 'R6S'>Rainbow Six Seige</button>
       </div>
       </div>
 </body>

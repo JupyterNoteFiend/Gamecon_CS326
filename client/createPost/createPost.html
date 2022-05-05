@@ -15,7 +15,16 @@
         <div class="newPostWrapper">
             <form>
                 <label for="chk" aria-hidden="true">New Post</label>
-                <input class="title" name="postTitle" placeholder="Username" required="" id="postTitle">
+                <input class="username" name="username" placeholder="Username" required="" id="username">
+                <select id="game" class = 'username' placeholder="Game">
+                    <option value="allGames" selected>All Games</option>
+                    <option value="R6S">Rainbow Six Seige</option>
+                    <option value="fortnite">Fortnite</option>
+                    <option value="cod">Call of Duty</option>
+                    <option value="gta">GTA V</option>
+                    <option value="nba2k">NBA 2K22</option>
+                </select>            
+                <input class="title" name="postTitle" placeholder="Title" required="" id="postTitle">
                 <textarea class="content" name="postTextContent" placeholder="Post text" required=""
                     id="postText"></textarea>
                 <input class="imageLink" name="imageLink" placeholder="Hyperlink for Image" required="" id="imageLink">

@@ -2,10 +2,6 @@ async function updateLikes(postId, like, likes){
     let l = (like)? true: false;
     let data = await fetch(`/updateLikes?postId=${postId}&like=${l}&likes=${likes}`, {
         method: 'POST'
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },
-        // body: JSON.stringify({postId: postId, like: (like)? true: false, likes}),
     });
     let response = await data.json();
     if (response.success) {
@@ -15,11 +11,17 @@ async function updateLikes(postId, like, likes){
     }
 }
 
-async function genPosts() {
+async function genPosts(searchFilter, gameFilter) {
     let posts = await fetch(`/getPosts`, {
         method: 'GET',
     });
     let postList = await posts.json();
+    if(searchFilter != ''){
+        postList = postList.filter(e => (e.postTitle.toLowerCase().includes(searchFilter.toLowerCase())) || (e.content.toLowerCase().includes(searchFilter.toLowerCase())) );
+    }
+    if(gameFilter != 'allGames'){
+        postList = postList.filter(e => (e.game.toLowerCase().includes(gameFilter.toLowerCase())));
+    }
     let rowDiv = document.getElementById('postRow');
     for (let i = 0; i < postList.length; i++) {
         let colLg6 = document.createElement('div');
@@ -46,6 +48,10 @@ async function genPosts() {
         textMutedSmall.classList.add('text-muted', 'small');
         textMutedSmall.innerHTML = postList[i].date;
         mediaBodyMl3.appendChild(textMutedSmall);
+        let postTitle = document.createElement('div');
+        postTitle.classList.add('postTitle');
+        postTitle.innerText = postList[i].postTitle;
+        mediaBodyMl3.appendChild(postTitle);
         let newP = document.createElement('p');
         newP.innerHTML = postList[i].content;
         cardBody.appendChild(newP);
@@ -95,6 +101,52 @@ async function genPosts() {
     }
 }
 
-window.onload = async function () {
-    await genPosts();
+
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
+
+window.onload = async function () {
+    await genPosts('', 'allGames');
+}
+
+document.getElementById('searchBox').addEventListener('keypress', async function (e) {
+    if (e.key === 'Enter') {
+        searchFilter = document.getElementById('searchBox').value;
+        removeAllChildNodes(document.getElementById('postRow'));
+        await genPosts(searchFilter, 'allGames');
+    }
+});
+
+document.getElementById('cod').addEventListener('click', async function(){
+    gameFilter = 'cod';
+    removeAllChildNodes(document.getElementById('postRow'));
+    await genPosts('', gameFilter);
+});
+
+document.getElementById('fortnite').addEventListener('click', async function(){
+    gameFilter = 'fortnite';
+    removeAllChildNodes(document.getElementById('postRow'));
+    await genPosts('', gameFilter);
+});
+
+document.getElementById('gta').addEventListener('click', async function(){
+    gameFilter = 'gta';
+    removeAllChildNodes(document.getElementById('postRow'));
+    await genPosts('', gameFilter);
+});
+
+document.getElementById('r6s').addEventListener('click', async function(){
+    gameFilter = 'R6S';
+    removeAllChildNodes(document.getElementById('postRow'));
+    await genPosts('', gameFilter);
+});
+
+document.getElementById('nba2k').addEventListener('click', async function(){
+    gameFilter = 'nba2k';
+    removeAllChildNodes(document.getElementById('postRow'));
+    await genPosts('', gameFilter);
+});

@@ -26,8 +26,21 @@ body{
 	height: 100%;
 }
 
-.title{
+.username{
 	width: 30%;
+	height: 40px;
+	background: #d7d4d4;
+	justify-content: center;
+	display: flex;
+	margin: 10px auto;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	font-family: 'Jost', sans-serif;
+}
+
+.title{
+	width: 40%;
 	height: 40px;
 	background: #d7d4d4;
 	justify-content: center;

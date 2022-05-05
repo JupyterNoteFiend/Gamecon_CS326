@@ -33,13 +33,13 @@ class game36Server {
     });    
     
     this.app.post('/addPost', async function (request, response) {
-        const { username, content, imageLink, postId, date } = request.query;
+        const { username, game, postTitle, content, imageLink, postId, date } = request.query;
         try{
             if (imageLink) {
-                const res = await self.db.createPost(username, content, imageLink, postId, 0, date);
+                const res = await self.db.createPost(username, game, postTitle, content, imageLink, postId, 0, date);
             }
             else {
-                const res = await self.db.createPost(username, content, '', postId, 0, date);
+                const res = await self.db.createPost(username, game, postTitle, content, '', postId, 0, date);
             }
             response.status(200).send({'status': 'success'});
         } catch (err) {
@@ -132,6 +132,6 @@ class game36Server {
         });
     }
 }
-
-const server = new game36Server(process.env.DATABASE_URL);
+//process.env.DATABASE_URL
+const server = new game36Server('mongodb+srv://game36:1234@gamedb.nrr7g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 server.start(); 
