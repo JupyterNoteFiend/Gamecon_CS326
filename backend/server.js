@@ -113,8 +113,8 @@ class game36Server {
     });
 
     this.app.get('/', (request, response) => {
-        response.redirect('/client/gamecon.html');
-    })
+            response.redirect('/client/login/login.html');
+        })
     //
     }
 
