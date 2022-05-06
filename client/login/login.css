@@ -88,3 +88,6 @@ button:hover{
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
+#newUser {
+	padding-left: 23%;
+}
