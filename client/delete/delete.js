@@ -12,7 +12,7 @@ document.getElementById('deleteButton').addEventListener('click', async function
     let password = document.getElementById('deletePassword').value;
     let deleteBool = await deletePerson(username, password);
     if (deleteBool) {
-        window.location = '/client/gamecon.html';
+        window.location = '/login/login.html';
     } else {
         alert('Wrong username or password');
     }

@@ -76,7 +76,6 @@ class game36Server {
         const { username, password } = request.query;
         try {
             const res = await self.db.confirmUser(username, password);
-            console.log(res);  
             if(res){
                 response.status(200).send(true);
             }
@@ -128,10 +127,10 @@ class game36Server {
         await this.initDb();
         const port = process.env.PORT || 3000;
         this.app.listen(port, () => {
-          console.log(`PeopleServer listening on port ${port}!`);
+          console.log(`Game36Server listening on port ${port}!`);
         });
     }
 }
 //process.env.DATABASE_URL
-const server = new game36Server('mongodb+srv://game36:1234@gamedb.nrr7g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+const server = new game36Server(process.env.DATABASE_URL);
 server.start(); 

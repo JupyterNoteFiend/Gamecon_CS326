@@ -17,20 +17,11 @@
     border: 1px solid rgb(192, 189, 189);
 }
 
-/* .login {
-    padding-left: 10%;
-} */
-
-/* .signup {
-    padding-right: 0%;
-} */
-
 body {
     background:#eee;
 }
 .posts-content{
     margin-top: 20px;  
-    /* padding-left: 10%;   */
 }
 .ui-w-40 {
     width: 40px !important;
@@ -78,12 +69,10 @@ body {
 }
 
 .likes {
-    /* padding-right: 3%; */
     float: right;
 }
 
 .dislikes {
-    /* padding-right: 2%; */
     float: right;
 }
 .comments {
@@ -121,22 +110,6 @@ body {
 .postTitle{
     text-align: center;
 }
-/* .login {
-    padding-left: 30%;
-} */
-
-/* .signup {
-    padding-right: 0%;
-} */
-
-/* .delete {
-    padding-right: 10%;
-} */
-
-/* #createPostButton, #deleteButton {
-    background-color: rgb(255, 255, 255);
-    border-radius: 9px;
-} */
 
 .createPost {
     padding-left: 20%;

@@ -23,8 +23,7 @@ document.getElementById('changePassword').addEventListener('click', async functi
     if(verifyBool){
         let bool = await changePassword(username, newPassword);
         if(bool){
-            e.preventDefault();
-            //window.location = '/client/gamecon.html';
+            window.location = '/client/gamecon.html';
         }
         else{
             alert('Server side error');

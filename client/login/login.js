@@ -4,12 +4,6 @@ async function verifyPerson(name, password) {
     })
     let jsonObj = await persons.json();
     return jsonObj;
-    // let personObj = await persons.json();
-    // if (personObj.message === 'Successfully logged in') {
-    //     return true;
-    // } else {
-    //     return false;
-    // }
 }
 
 document.getElementById('checkLog').addEventListener('click', async function (e) {

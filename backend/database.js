@@ -45,14 +45,15 @@ export class game36Database {
     let users = await this.readUsers();
     for(let i = 0; i < users.length; ++i){
         if (users[i].username === username && users[i].password === password) {
-            return true;
+          return true;
         }
     }
     return false;
   }
 
   async createUser(username, password) {
-    if(this.exists(username)){
+    const exists = await this.exists(username);
+    if(exists === false){
         const res = await this.users.insertOne({ username: username, password: password});
         return res;
     }
@@ -94,8 +95,9 @@ export class game36Database {
   }
 
   async deleteUser(username, password) {
-    if(this.confirmUser(username, password)){
-        const del = await this.users.deleteOne({username: username});
+    const confirm = await this.confirmUser(username, password);
+    if(confirm){
+        const del = await this.users.deleteOne({username: username, password: password});
         return del;
     }
     else{

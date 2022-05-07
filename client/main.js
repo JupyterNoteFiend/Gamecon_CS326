@@ -88,16 +88,6 @@ async function genPosts(searchFilter, gameFilter) {
         cardFooter.appendChild(dislike);
         cardFooter.appendChild(likeStrong);
         cardFooter.appendChild(likes);
-        let comments = document.createElement('a');
-        comments.href = "javascript:void(0)";
-        comments.classList.add('d-inline-block', 'text-muted', 'ml-3', 'comments');
-        cardFooter.appendChild(comments);
-        let commentStrong = document.createElement('strong');
-        commentStrong.innerHTML = "12 comments";
-        comments.appendChild(commentStrong);
-        let share = document.createElement('a');
-        share.href = "javascript:void(0)";
-        share.classList.add('d-inline-block', 'text-muted', 'ml-3', 'repost');
     }
 }
 
