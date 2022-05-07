@@ -1,4 +1,8 @@
 Game36: Gamecon (Spring 2022)
+    Overview: 
+        Overview: 
+        This is a social media website that is catered towards gamers. Gamers can come to this website and the website is able to curate content for the user based on the games that the user is interested in. Gamers also have the ability to contribute to the content which creates an open-platform style social media site.  Users not only have the ability to view other’s posts, they also have the ability to interact with the user by liking it, or disliking it. Gamers form all walks of life can come together and connect with other gamers such as themselves from all over the world to find people that they have a common interest with and share their ideas or make connections. We feel that this would strengthen the gaming community and make it more accessible. This would also allow gaming companies to be able to see public feedback and judge their games’ business performance based on the satisfaction of their customers. Lastly, our website also attracts a crowd of people with similar interests (gaming) and we think that this could give us an opportunity for other gaming companies to be able to advertise their brand and spread awareness for their product using our platform.
+
     Team: 
         creativedev1401 Utkarsh Sahni
         rvaikunth Rhidam Vaikunth
