@@ -10,19 +10,19 @@ Game36: Gamecon (Spring 2022)
         tommycallanan Thomas Callanan
     User Interface:
         Main: The “Main” view of the UI is where the user is what the user sees when they are logged in.  It contains a navbar with a search feature that filters posts by title, as well as 4 other buttons titled create post, change password, delete account, and logout. These buttons take the user to the views with the corresponding names detailed below. Also shown in this screen is a welcome post that describes the functionalities of the screen. Directly to the right of that is a tool that makes it easy to filter by game. Each game is a button, and when pressed, only posts that are put into that games section when created are shown. 
-        The screenshot immediately below the first screenshot is from the same view, just scrolled down.  It shows what the structure of the posts looks like. The like and dislike buttons immediately increase or decrease the number of likes for the given post. (insert filename)
+        The screenshot immediately below the first screenshot is from the same view, just scrolled down.  It shows what the structure of the posts looks like. The like and dislike buttons immediately increase or decrease the number of likes for the given post. (main.png and posts.png)
 
-        Update: The “Change Password” view is designed to allow the user to change their password by entering their username, their old password, and the new password they want to change to. The change password button updates their information, and takes the user to the main screen. (insert filename)
+        Update: The “Change Password” view is designed to allow the user to change their password by entering their username, their old password, and the new password they want to change to. The change password button updates their information, and takes the user to the main screen. (changePassword.png)
 
         Signup: The “Sign Up” view is designed to allow the user to create an account. The user enters their username, password, and their password again to ensure it is what they wanted it to be. The sign up button pushes through their information, and takes the user to the main screen.
-        (insert filename)
+        (signup.png)
 
-        Login: The “Log in” view is designed to allow the user to log into their account. The user enters their username, password, and pushes through their information with the login button which also takes the user to the main screen.  Also featured is the “New User? Sign up here!” button. When clicked, this takes the user directly to the “Sign Up” view shown above. (insert filename)
+        Login: The “Log in” view is designed to allow the user to log into their account. The user enters their username, password, and pushes through their information with the login button which also takes the user to the main screen.  Also featured is the “New User? Sign up here!” button. When clicked, this takes the user directly to the “Sign Up” view shown above. (Login.png)
 
         Create Post: The “Create Post” view is designed to allow the user to make a post. The user enters their username, the game their post is related to, the title of their post, the post content, and finally a hyperlink for any image they would like to include. The “Post” button creates the post, generates it, and takes the user to the main screen.
-        (insert filename)
+        (createPost.png)
 
-        Delete Account: The “Delete Account” view is designed to allow the user to delete their account. The user enters their username, password, and the delete account button deletes the account then takes the user to the “Login” view. (insert filename)
+        Delete Account: The “Delete Account” view is designed to allow the user to delete their account. The user enters their username, password, and the delete account button deletes the account then takes the user to the “Login” view. (deleteAccount.png)
 
     API's:
         Node.js server using ExpressJS framework:
