@@ -8,6 +8,7 @@ Game36: Gamecon (Spring 2022)
         rvaikunth Rhidam Vaikunth
         clibretto Carleano Libretto
         tommycallanan Thomas Callanan
+        
     User Interface:
         Main: The “Main” view of the UI is where the user is what the user sees when they are logged in.  It contains a navbar with a search feature that filters posts by title, as well as 4 other buttons titled create post, change password, delete account, and logout. These buttons take the user to the views with the corresponding names detailed below. Also shown in this screen is a welcome post that describes the functionalities of the screen. Directly to the right of that is a tool that makes it easy to filter by game. Each game is a button, and when pressed, only posts that are put into that games section when created are shown. 
         The screenshot immediately below the first screenshot is from the same view, just scrolled down.  It shows what the structure of the posts looks like. The like and dislike buttons immediately increase or decrease the number of likes for the given post. (main.png and posts.png)
